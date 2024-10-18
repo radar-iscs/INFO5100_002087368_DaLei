@@ -74,10 +74,9 @@ class Session {
         }
     }
 
-    public float getAverageQuizScores() {
+    public float getAverageQuizScoresForClass() {
         int count = 0;
-
-        double sum = 0;
+        float sum = 0;
         for (Student student : students) {
             ArrayList<Integer> scores = student.getQuizScores();
             for (int score: scores) {
@@ -92,19 +91,45 @@ class Session {
         return (float)sum / count;
     }
 
-    public void printAscendingScores() {
+    public void printAverageQuizScoresForStudent() {
+        System.out.println("Average quiz score for the each Student:");
+        for (Student student : students) {
+            float sum = 0;
+            ArrayList<Integer> scores = student.getQuizScores();
+            for (int score: scores) {
+                sum += score;
+            }
+            int count = scores.size();
+            if (count != 0) {
+                System.out.printf("%s: %.2f\n", student.getName(), (float)sum / count);
+            }
+        }
+        System.out.println();
+    }
+
+    public void printAscendingScoresForClass() {
         ArrayList<Integer> list = new ArrayList<Integer>();
         for (Student student : students) {
             ArrayList<Integer> scores = student.getQuizScores();
             list.addAll(scores);
         }
         list.sort((a, b) -> { return a - b; });
-        System.out.println("Ascending Quiz Scores:");
+        System.out.println("Ascending quiz scores for the whole class:");
         System.out.println(list);
     }
 
+    public void printAscendingScoresForStudent() {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        System.out.println("Ascending quiz scores for each student:");
+        for (Student student : students) {
+            ArrayList<Integer> scores = student.getQuizScores();
+            scores.sort((a, b) -> { return a - b; });
+            System.out.println(student.getName() + ": " + scores);
+        }
+    }
+
     public void printPartTimeNames() {
-        System.out.println("Names of Part-time Students:");
+        System.out.println("Names of part-time students:");
         for (Student student : students) {
             if (student instanceof PartTimeStudent) {
                 System.out.println(student.getName());
@@ -113,11 +138,11 @@ class Session {
     }
 
     public void printFullTimeExamScores() {
-        System.out.println("Exam Scores of Full-time Students:");
+        System.out.println("Exam scores of full-time students:");
         for (Student student : students) {
             if (student instanceof FullTimeStudent) {
                 ArrayList<Integer> scores = ((FullTimeStudent) student).getExamScores();
-                System.out.println("scores of student " + student.getName() + ": " + scores);
+                System.out.println(student.getName() + ": " + scores);
             }
         }
     }
@@ -149,11 +174,16 @@ public class Main {
             session.addStudent(partTimeStudent);
         }
 
-        // method1
-        System.out.println("Average Quiz Score:");
-        System.out.printf("%.2f\n\n", session.getAverageQuizScores());
-        // method2
-        session.printAscendingScores();
+        // method1 - the whole class
+        System.out.println("Average quiz score for the whole class:");
+        System.out.printf("%.2f\n\n", session.getAverageQuizScoresForClass());
+        // method1 - each student
+        session.printAverageQuizScoresForStudent();
+        // method2 - the whole class
+        session.printAscendingScoresForClass();
+        System.out.println();
+        // method2 - each student
+        session.printAscendingScoresForStudent();
         System.out.println();
         // method3
         session.printPartTimeNames();
