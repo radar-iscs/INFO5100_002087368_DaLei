@@ -1,0 +1,25 @@
+{
+    "BookShelf": {
+      "Book": [
+        {
+          "title": "Harry Potter",
+          "publishedYear": 1997,
+          "numberOfPages": 766,
+          "authors": ["JK Rowling"]
+        },
+        {
+          "title": "A Song of Ice and Fire",
+          "publishedYear": 1996,
+          "numberOfPages": 694,
+          "authors": ["George R. R. Martin"]
+        },
+        {
+          "title": "Introduction to Algorithms",
+          "publishedYear": 1990,
+          "numberOfPages": 1312,
+          "authors": ["Thomas H. Cormen", "Charles E. Leiserson", "Ronald L. Rivest", "Clifford Stein"]
+        }
+      ]
+    }
+  }
+  

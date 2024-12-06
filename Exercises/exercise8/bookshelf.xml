@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BookShelf>
+    <Book>
+        <title>Harry Potter</title>
+        <publishedYear>1997</publishedYear>
+        <numberOfPages>766</numberOfPages>
+        <authors>
+            <author>JK Rowling</author>
+        </authors>
+    </Book>
+    <Book>
+        <title>A Song of Ice and Fire</title>
+        <publishedYear>1996</publishedYear>
+        <numberOfPages>694</numberOfPages>
+        <authors>
+            <author>George R. R. Martin</author>
+        </authors>
+    </Book>
+    <Book>
+        <title>Introduction to Algorithms</title>
+        <publishedYear>1990</publishedYear>
+        <numberOfPages>1312</numberOfPages>
+        <authors>
+            <author>Thomas H. Cormen</author>
+            <author>Charles E. Leiserson</author>
+            <author>Ronald L. Rivest</author>
+            <author>Clifford Stein</author>
+        </authors>
+    </Book>
+</BookShelf>
